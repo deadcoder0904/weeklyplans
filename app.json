@@ -25,7 +25,7 @@
         "READ_INTERNAL_STORAGE",
         "WRITE_EXTERNAL_STORAGE"
       ],
-      "versionCode": 1
+      "versionCode": 2
     }
   }
 }
