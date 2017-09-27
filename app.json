@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Weekly Plans",
+    "slug": "weekly-plans",
+    "sdkVersion": "21.0.0",
+    "privacy": "public",
+    "version": "1.0.4",
+    "orientation": "portrait",
+    "primaryColor": "#004284",
+    "icon": "./assets/icon.png",
+    "loading": {
+      "icon": "./assets/icon.png",
+      "backgroundColor": "#ffffff",
+      "hideExponentText": true
+    },
+    "androidShowExponentNotificationInShellApp": false,
+    "ios": {
+      "supportsTablet": true,
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.deadcoder0904.weeklyplans",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "READ_INTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "versionCode": 1
+    }
+  }
+}
