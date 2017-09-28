@@ -28,7 +28,6 @@ class AddPlan extends Component {
 
   saveText = () => {
     const text = this.state.text.trim();
-    Keyboard.dismiss();
     if (text === "") {
       ToastAndroid.showWithGravity(
         "Enter some text !!!",
@@ -43,7 +42,6 @@ class AddPlan extends Component {
     } else {
       add(date, text);
     }
-    this.textChange("");
     this.props.navigation.state.params.toggleLoading();
     this.goBack();
     AdMobRewarded.requestAd(AdMobRewarded.showAd);
@@ -51,6 +49,7 @@ class AddPlan extends Component {
 
   goBack = () => {
     Keyboard.dismiss();
+    this.textChange("");
     AdMobInterstitial.requestAd(AdMobInterstitial.showAd);
     const navigate = this.state.edit
       ? this.props.navigation.state.params.navigate
