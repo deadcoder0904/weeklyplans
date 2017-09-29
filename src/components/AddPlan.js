@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Keyboard, Text, ToastAndroid } from "react-native";
 import { Item, Input, Button, Form, Container } from "native-base";
-import { AdMobInterstitial, AdMobRewarded } from "expo";
+import { AdMobInterstitial, AdMobRewarded, AdMobBanner } from "expo";
+
+import { bannerID } from "../utils/index";
 
 class AddPlan extends Component {
   static navigationOptions = { title: "Welcome", header: null };
@@ -44,13 +46,13 @@ class AddPlan extends Component {
     }
     this.props.navigation.state.params.toggleLoading();
     this.goBack();
-    AdMobRewarded.requestAd(AdMobRewarded.showAd);
   };
 
   goBack = () => {
     Keyboard.dismiss();
     this.textChange("");
     AdMobInterstitial.requestAd(AdMobInterstitial.showAd);
+    AdMobRewarded.requestAd(AdMobRewarded.showAd);
     const navigate = this.state.edit
       ? this.props.navigation.state.params.navigate
       : this.props.navigation.navigate;
@@ -61,6 +63,12 @@ class AddPlan extends Component {
   render() {
     return (
       <Container>
+        <AdMobBanner
+          bannerSize="fullBanner"
+          adUnitID={bannerID}
+          testDeviceID="EMULATOR"
+          didFailToReceiveAdWithError={this.bannerError}
+        />
         <Form style={styles.container}>
           <Item regular style={styles.input}>
             <Input
@@ -79,6 +87,12 @@ class AddPlan extends Component {
             <Text style={styles.cancelText}>Cancel</Text>
           </Button>
         </Form>
+        <AdMobBanner
+          bannerSize="fullBanner"
+          adUnitID={bannerID}
+          testDeviceID="EMULATOR"
+          didFailToReceiveAdWithError={this.bannerError}
+        />
       </Container>
     );
   }

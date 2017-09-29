@@ -141,6 +141,7 @@ class App extends Component {
     if (this.state.loading) {
       return (
         <View style={styles.spin}>
+          <StatusBar hidden />
           <Spinner color="steelblue" />
         </View>
       );
